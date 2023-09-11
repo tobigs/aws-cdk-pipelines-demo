@@ -13,7 +13,7 @@ class LambdaStack(Stack):
             code=_lambda.DockerImageCode.from_ecr(
                 _ecr.Repository.from_repository_name(self, 'lambda_container_pipeline', 
                 repository_name=ecr_repo_name), tag=tag),
-            memory_size=config.memory_size,
+            memory_size=2048,
             description="Function generated on {}".format(datetime.datetime.now()),
             timeout=Duration.seconds(30),
             )
