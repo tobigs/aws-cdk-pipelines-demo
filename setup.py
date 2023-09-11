@@ -15,11 +15,12 @@ setuptools.setup(
 
     author="author",
 
-    package_dir={"": "ml_container_lambda_cdk_pipelines_test"},
-    packages=setuptools.find_packages(where="ml_container_lambda_cdk_pipelines_test"),
+    # package_dir={"": "ml_container_lambda_cdk_pipelines_test"},
+    # packages=setuptools.find_packages(where="ml_container_lambda_cdk_pipelines_test"),
 
     install_requires=[
-        "aws-cdk.core==1.75.0",
+        "aws-cdk-lib==2.2.0",
+        "constructs>=10.0.0,<11.0.0",
     ],
 
     python_requires=">=3.6",
@@ -28,8 +29,6 @@ setuptools.setup(
         "Development Status :: 4 - Beta",
 
         "Intended Audience :: Developers",
-
-        "License :: OSI Approved :: Apache Software License",
 
         "Programming Language :: JavaScript",
         "Programming Language :: Python :: 3 :: Only",

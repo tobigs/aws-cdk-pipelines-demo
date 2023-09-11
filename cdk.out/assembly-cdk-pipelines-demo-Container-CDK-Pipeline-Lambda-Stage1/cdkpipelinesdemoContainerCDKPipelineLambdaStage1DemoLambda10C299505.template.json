@@ -57,12 +57,12 @@
         {
          "Fn::ImportValue": "ecr-repo-name"
         },
-        ":latest-b0a98bb8960a"
+        ":latest-43eb09f1ea28"
        ]
       ]
      }
     },
-    "Description": "Function generated on 2023-09-11 12:13:23.840524",
+    "Description": "Function generated on 2023-09-11 13:28:24.549129",
     "MemorySize": 256,
     "PackageType": "Image",
     "Role": {
