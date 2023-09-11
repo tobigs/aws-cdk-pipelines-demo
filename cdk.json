@@ -5,6 +5,16 @@
     "aws-cdk:enableDiffNoFail": "true",
     "@aws-cdk/core:stackRelativeExports": "true",
     "@aws-cdk/aws-ecr-assets:dockerIgnoreSupport": true,
-    "@aws-cdk/core:newStyleStackSynthesis": "true"
+    "@aws-cdk/core:newStyleStackSynthesis": "true",
+    "dev": {
+      "memory_size": 256
+    },
+    "prod": {
+      "memory_size": 1024
+    },
+    "test": {
+      "memory_size": 512
+    },
+    "env": "dev"
   }
 }

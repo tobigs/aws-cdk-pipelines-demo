@@ -52,6 +52,7 @@ class PipelineStack(core.Stack):
         pipeline = _pipelines.CodePipeline(self, "Container_Pipeline",
             synth=_pipelines.ShellStep("Synth",
                 input=git_hub_commit,
+                env={"env": config.env},
                 commands=["npm install -g aws-cdk && pip install -r requirements.txt", 
                             "cdk synth",
                             "pytest unittests"]

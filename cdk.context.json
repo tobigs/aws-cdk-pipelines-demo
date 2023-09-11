@@ -1,17 +1,5 @@
 {
   "acknowledged-issue-numbers": [
     19836
-  ],
-  "context": {
-    "dev": {
-      "memory_size": 256
-    },
-    "prod": {
-      "memory_size": 1024
-    },
-    "test": {
-      "memory_size": 512
-    },
-    "env": "dev"
-  }
+  ]
 }

@@ -1,0 +1,23 @@
+  //,
+  // "dev": {
+  //   "memory_size": 256
+  // },
+  // "prod": {
+  //   "memory_size": 1024
+  // },
+  // "test": {
+  //   "memory_size": 512
+  // },
+  // "env": "dev",
+  // "context": {
+  //   "dev": {
+  //     "memory_size": 256
+  //   },
+  //   "prod": {
+  //     "memory_size": 1024
+  //   },
+  //   "test": {
+  //     "memory_size": 512
+  //   },
+  //   "env": "dev"
+  // }

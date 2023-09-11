@@ -9,6 +9,7 @@ from config.config import get_config
 app = core.App()
 
 config = get_config(app)
+print(config)
 
 PipelineStack(app, "cdk-pipelines-demo", config)
 
