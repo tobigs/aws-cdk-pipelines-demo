@@ -41,7 +41,7 @@ class PipelineStack(core.Stack):
                 value=ecr_repo.repository_uri,
                 export_name="ecr-repo-uri")
 
-        github_repo='YOUR_GITHUB_USERNAME/cdk_pipelines_demo'
+        github_repo='tobigs/cdk_pipelines_demo'
 
         git_hub_commit = _pipelines.CodePipelineSource.git_hub(
                     github_repo,
