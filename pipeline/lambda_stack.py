@@ -7,7 +7,7 @@ class LambdaStack(Stack):
         super().__init__(app, id, **kwargs)
 
         ecr_repo_name = Fn.import_value("ecr-repo-name") 
-
+        # bump
         func = _lambda.DockerImageFunction(
             self, "LambdaContainerFunction",
             code=_lambda.DockerImageCode.from_ecr(
