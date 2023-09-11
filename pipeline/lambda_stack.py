@@ -3,7 +3,7 @@ import datetime
 
 class LambdaStack(core.Stack):
 
-    def __init__(self, app: core.App, id: str, tag, **kwargs):
+    def __init__(self, app: core.App, id: str, tag, config, **kwargs):
         super().__init__(app, id, **kwargs)
 
         ecr_repo_name = core.Fn.import_value("ecr-repo-name") 
@@ -13,7 +13,7 @@ class LambdaStack(core.Stack):
             code=_lambda.DockerImageCode.from_ecr(
                 _ecr.Repository.from_repository_name(self, 'lambda_container_pipeline', 
                 repository_name=ecr_repo_name), tag=tag),
-            memory_size=1024,
+            memory_size=config.memory_size,
             description="Function generated on {}".format(datetime.datetime.now()),
             timeout=core.Duration.seconds(30),
             )

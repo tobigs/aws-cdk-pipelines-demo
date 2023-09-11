@@ -15,20 +15,20 @@ image_tag=f'latest-{str(uuid.uuid4()).split("-")[-1]}'
 
 
 class ApplicationStageLambda1(core.Stage):
-  def __init__(self, scope: core.Construct, id: str, **kwargs):
+  def __init__(self, scope: core.Construct, id: str, config, **kwargs):
     super().__init__(scope, id, **kwargs)
 
-    LambdaStack(self, 'Demo-Lambda1', image_tag)
+    LambdaStack(self, 'Demo-Lambda1', image_tag, config)
 
 class ApplicationStageLambda2(core.Stage):
-  def __init__(self, scope: core.Construct, id: str, **kwargs):
+  def __init__(self, scope: core.Construct, id: str, config, **kwargs):
     super().__init__(scope, id, **kwargs)
 
-    LambdaStack(self, 'Demo-Lambda2', image_tag)
+    LambdaStack(self, 'Demo-Lambda2', image_tag, config)
 
 class PipelineStack(core.Stack):
 
-    def __init__(self, scope: core.Construct, id: str, **kwargs):
+    def __init__(self, scope: core.Construct, id: str, config, **kwargs):
         super().__init__(scope, id, **kwargs)
 
         ecr_repo = _ecr.Repository(self, "lambda_container_pipeline")
@@ -75,10 +75,10 @@ class PipelineStack(core.Stack):
             }
         )
         
-        lambda_function1 = ApplicationStageLambda1(self, 'Container-CDK-Pipeline-Lambda-Stage1')
+        lambda_function1 = ApplicationStageLambda1(self, 'Container-CDK-Pipeline-Lambda-Stage1', config)
         lambda_function_stage1 = pipeline.add_stage(lambda_function1, pre=[buildContainerProject])
 
-        #lambda_function2 = ApplicationStageLambda2(self, 'Container-CDK-Pipeline-Lambda-Stage2')
+        #lambda_function2 = ApplicationStageLambda2(self, 'Container-CDK-Pipeline-Lambda-Stage2', config)
         #lambda_function_stage2 = pipeline.add_stage(lambda_function2, pre=[buildContainerProject])
 
 
