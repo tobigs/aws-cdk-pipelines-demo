@@ -1,12 +1,12 @@
-from aws_cdk import core, aws_lambda as _lambda, aws_ecr as _ecr
+from aws_cdk import Stack, App, Fn, Duration, aws_lambda as _lambda, aws_ecr as _ecr
 import datetime
 
-class LambdaStack(core.Stack):
+class LambdaStack(Stack):
 
-    def __init__(self, app: core.App, id: str, tag, config, **kwargs):
+    def __init__(self, app: App, id: str, tag, config, **kwargs):
         super().__init__(app, id, **kwargs)
 
-        ecr_repo_name = core.Fn.import_value("ecr-repo-name") 
+        ecr_repo_name = Fn.import_value("ecr-repo-name") 
 
         func = _lambda.DockerImageFunction(
             self, "LambdaContainerFunction",
@@ -15,7 +15,7 @@ class LambdaStack(core.Stack):
                 repository_name=ecr_repo_name), tag=tag),
             memory_size=config.memory_size,
             description="Function generated on {}".format(datetime.datetime.now()),
-            timeout=core.Duration.seconds(30),
+            timeout=Duration.seconds(30),
             )
 
 

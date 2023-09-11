@@ -1,4 +1,4 @@
-from aws_cdk import core
+from aws_cdk import App
 from aws_cdk.assertions import Template
 from pipeline.lambda_stack import LambdaStack
 from config.config import get_config
@@ -6,7 +6,7 @@ from config.config import get_config
 def test_lambda_handler():
 
     # GIVEN
-    app = core.App()
+    app = App()
     config = get_config(app)
 
     # WHEN
